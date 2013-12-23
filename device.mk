@@ -22,7 +22,6 @@
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/lge/hammerhead-kernel/zImage-dtb
-LOCAL_MODULES := device/lge/hammerhead-kernel/modules
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -30,7 +29,7 @@ endif
 
 PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel \
-    $(LOCAL_MODULES):system/lib/modules
+    device/lge/hammerhead-kernel/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
 
 PRODUCT_COPY_FILES += \
     device/lge/hammerhead/init.hammerhead.rc:root/init.hammerhead.rc \
